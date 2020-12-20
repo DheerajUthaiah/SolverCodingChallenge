@@ -39,15 +39,15 @@ namespace DataService.API.Controllers
             {
                 if (ex.Message.Contains("Invalid object"))
                 {
-                    return "Invalid Table name";
+                    return Ok("Invalid Table name");
                 }
                 else if (ex.Message.Contains("Invalid Database"))
                 {
-                    return "Invalid Database";
+                    return BadRequest("Invalid Database");
                 }
                 else
                 {
-                    return "Unexpected error occured";
+                    return BadRequest("Unexpected error occured");
                 }
             }
         }
