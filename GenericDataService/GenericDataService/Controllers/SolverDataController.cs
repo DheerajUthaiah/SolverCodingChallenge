@@ -33,13 +33,13 @@ namespace DataService.API.Controllers
         {
             try
             {
-                return await method.Invoke();
+                return Ok(await method.Invoke());
             }
             catch (Exception ex)
             {
                 if (ex.Message.Contains("Invalid object"))
                 {
-                    return Ok("Invalid Table name");
+                    return BadRequest("Invalid Table name");
                 }
                 else if (ex.Message.Contains("Invalid Database"))
                 {
